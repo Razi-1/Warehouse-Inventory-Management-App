@@ -1,0 +1,10 @@
+# GITHUB: Day 1 - Commit 2 - "chore: add Docker configuration"
+
+node_modules
+npm-debug.log
+.env
+.git
+.gitignore
+*.md
+coverage/
+.expo/

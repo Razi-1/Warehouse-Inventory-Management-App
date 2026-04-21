@@ -1,0 +1,32 @@
+# GITHUB: Day 1 - Commit 2 - "chore: add Docker configuration"
+
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=development
+      - PORT=5000
+      - MONGO_URI=mongodb://mongo:27017/warehouseiq
+      - JWT_SECRET= 6dd03ae3c22f3517bbcbb4a531ad62ca6cdbe437391311b918a1597591e1561c4e9a25a8857a39b7ccaca08d3104abfb940e5bcedc37cd4a88a30d249eb5cba7
+      - CLOUDINARY_CLOUD_NAME=dm81yebbt
+      - CLOUDINARY_API_KEY=121848942567485
+      - CLOUDINARY_API_SECRET=IRAjRz0OBE7w7rc57wqxL4kGRUs
+    depends_on:
+      - mongo
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+
+  mongo:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
