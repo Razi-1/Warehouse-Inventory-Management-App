@@ -1,4 +1,4 @@
-// GITHUB: Day 5 - Commit 4 - "feat(frontend): add Customer module screens and role-based tab navigation"
+// Day 6 - Commit 4 - "fix: finalize form validation and error handling across all screens"
 
 import React, { useState } from 'react';
 import { View, ScrollView, StyleSheet, TouchableOpacity, Text, Alert, ActivityIndicator } from 'react-native';

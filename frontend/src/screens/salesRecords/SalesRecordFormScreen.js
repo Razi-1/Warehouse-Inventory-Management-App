@@ -1,5 +1,4 @@
-// GITHUB: Day 5 - Commit 3 - "feat(frontend): add StockEntry and SalesRecord module screens"
-
+// Day 6 - Commit 4 - "fix: finalize form validation and error handling across all screens"
 import React, { useState, useEffect } from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Alert, ActivityIndicator } from 'react-native';
 import { Picker } from '@react-native-picker/picker';

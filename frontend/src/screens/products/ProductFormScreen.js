@@ -1,4 +1,4 @@
-// GITHUB: Day 4 - Commit 3 - "feat(frontend): add Product module screens — list, detail, and form"
+// Day 6 - Commit 4 - "fix: finalize form validation and error handling across all screens"
 
 import React, { useState, useEffect } from 'react';
 import {
