@@ -1,4 +1,4 @@
-// GITHUB: Day 5 - Commit 3 - "feat(frontend): add StockEntry and SalesRecord module screens"
+// GITHUB: Day 6 - Commit 3 - "feat(frontend): intergrate search and filter across all module list screens"
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { View, Text, FlatList, StyleSheet, TouchableOpacity, RefreshControl, Alert } from 'react-native';
