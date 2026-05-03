@@ -1,5 +1,3 @@
-// GITHUB: Day 6 - Commit 1 - "feat(backend): add dashboard summary endpoint"
-
 const Product = require('../models/Product');
 const Supplier = require('../models/Supplier');
 const Warehouse = require('../models/Warehouse');

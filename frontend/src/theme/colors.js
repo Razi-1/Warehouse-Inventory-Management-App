@@ -1,5 +1,3 @@
-// GITHUB: Day 2 - Commit 3 - "feat(frontend): add Expo project setup, navigation structure, and theme"
-
 const colors = {
   // Primary palette
   primary: '#8B7355',         // Warm brown — buttons, active tabs, headers

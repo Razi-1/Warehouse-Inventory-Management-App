@@ -1,5 +1,3 @@
-// GITHUB: Day 2 - Commit 2 - "feat(backend): add User model, auth controllers, routes, and JWT middleware"
-
 // Usage: router.post('/', protect, authorize('admin'), createWarehouse)
 // Accepts one or more allowed roles as arguments
 const authorize = (...roles) => {

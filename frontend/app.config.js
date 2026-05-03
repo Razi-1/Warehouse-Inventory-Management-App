@@ -1,5 +1,3 @@
-// GITHUB: Day 1 - Commit 1 - "chore: initialize project structure with frontend and backend folders"
-
 module.exports = {
   expo: {
     name: 'WarehouseIQ',
@@ -22,10 +20,7 @@ module.exports = {
       package: 'com.warehouseiq.app',
     },
     extra: {
-      // For local development: change to your machine's local IP, e.g. http://192.168.1.5:5000/api
-      // For production: keep the Render URL below
-      //apiUrl: 'https://warehouseiq-api.onrender.com/api',
-      apiUrl: 'http://10.11.17.209:5000/api',
+      apiUrl: process.env.API_URL || 'http://10.11.17.209:5000/api',
     },
   },
 };

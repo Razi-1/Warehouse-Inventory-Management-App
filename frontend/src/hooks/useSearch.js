@@ -1,5 +1,3 @@
-// GITHUB: Day 3 - Commit 5 - "feat(frontend): add reusable components"
-
 import { useState, useEffect, useMemo } from 'react';
 
 // A custom hook that manages search text with 300ms debouncing and filter state.

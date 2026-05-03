@@ -1,5 +1,3 @@
-// GITHUB: Day 2 - Commit 3 - "feat(frontend): add Expo project setup, navigation structure, and theme"
-
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { TOKEN_KEY, setLogoutCallback } from '../api/axiosConfig';

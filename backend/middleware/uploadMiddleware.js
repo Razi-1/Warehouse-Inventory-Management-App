@@ -1,5 +1,3 @@
-// GITHUB: Day 3 - Commit 4 - "feat(backend): add Cloudinary upload utility and file upload middleware"
-
 const multer = require('multer');
 const cloudinary = require('../config/cloudinary');
 

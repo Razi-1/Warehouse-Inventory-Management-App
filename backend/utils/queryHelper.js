@@ -1,5 +1,3 @@
-// GITHUB: Day 4 - Commit 2 - "feat(backend): add reusable search, filter, sort, and pagination utility"
-
 // queryHelper handles search, filter, sort, and pagination for all list endpoints.
 // model: Mongoose model
 // queryParams: req.query object

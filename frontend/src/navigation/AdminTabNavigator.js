@@ -1,5 +1,3 @@
-// GITHUB: Day 5 - Commit 4 - "feat(frontend): add Customer module screens and role-based tab navigation"
-
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';

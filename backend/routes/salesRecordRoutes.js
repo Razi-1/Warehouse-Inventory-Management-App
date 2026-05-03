@@ -1,5 +1,3 @@
-// GITHUB: Day 3 - Commit 3 - "feat(backend): add StockEntry and SalesRecord models and route stubs"
-
 const express = require('express');
 const router = express.Router();
 const {

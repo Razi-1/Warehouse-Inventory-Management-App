@@ -1,5 +1,3 @@
-// GITHUB: Day 4 - Commit 3 - "feat(frontend): add Product module screens — list, detail, and form"
-
 import React, { useState, useEffect, useCallback } from 'react';
 import {
   View, Text, ScrollView, StyleSheet, TouchableOpacity, Alert, Image,

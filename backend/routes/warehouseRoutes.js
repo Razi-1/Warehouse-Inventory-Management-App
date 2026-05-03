@@ -1,5 +1,3 @@
-// GITHUB: Day 3 - Commit 2 - "feat(backend): add Warehouse and Customer models and route stubs"
-
 const express = require('express');
 const router = express.Router();
 const {
