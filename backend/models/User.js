@@ -1,5 +1,3 @@
-// GITHUB: Day 2 - Commit 2 - "feat(backend): add User model, auth controllers, routes, and JWT middleware"
-
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 

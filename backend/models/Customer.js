@@ -1,5 +1,3 @@
-// GITHUB: Day 3 - Commit 2 - "feat(backend): add Warehouse and Customer models and route stubs"
-
 const mongoose = require('mongoose');
 
 const customerSchema = new mongoose.Schema({

@@ -1,5 +1,3 @@
-// GITHUB: Day 3 - Commit 5 - "feat(frontend): add reusable components"
-
 import React, { useState } from 'react';
 import {
   View,

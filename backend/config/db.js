@@ -1,11 +1,4 @@
-// GITHUB: Day 2 - Commit 1 - "feat(backend): add Express server setup, MongoDB connection, and middleware"
-
 const mongoose = require('mongoose');
-const dns = require('dns');
-
-// Use Google public DNS for SRV lookups — the local DNS proxy at 127.0.0.1
-// (set by VPN/antivirus) does not resolve MongoDB Atlas SRV records.
-dns.setServers(['8.8.8.8', '8.8.4.4']);
 
 const connectDB = async () => {
   try {

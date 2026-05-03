@@ -1,5 +1,3 @@
-// GITHUB: Day 5 - Commit 2 - "feat(backend): add Customer controller with full CRUD"
-
 const Customer = require('../models/Customer');
 const SalesRecord = require('../models/SalesRecord');
 const queryHelper = require('../utils/queryHelper');

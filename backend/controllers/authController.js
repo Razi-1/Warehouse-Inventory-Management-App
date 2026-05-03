@@ -1,5 +1,3 @@
-// GITHUB: Day 2 - Commit 2 - "feat(backend): add User model, auth controllers, routes, and JWT middleware"
-
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const User = require('../models/User');

@@ -1,5 +1,3 @@
-// GITHUB: Day 2 - Commit 1 - "feat(backend): add Express server setup, MongoDB connection, and middleware"
-
 const errorHandler = (err, req, res, next) => {
   let statusCode = res.statusCode === 200 ? 500 : res.statusCode;
   let message = err.message || 'Something went wrong';

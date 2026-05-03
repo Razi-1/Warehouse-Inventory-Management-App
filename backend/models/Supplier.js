@@ -1,5 +1,3 @@
-// GITHUB: Day 3 - Commit 1 - "feat(backend): add Product and Supplier models and route stubs"
-
 const mongoose = require('mongoose');
 
 const supplierSchema = new mongoose.Schema({

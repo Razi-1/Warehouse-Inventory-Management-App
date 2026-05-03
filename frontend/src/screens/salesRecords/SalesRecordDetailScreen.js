@@ -1,5 +1,3 @@
-// GITHUB: Day 5 - Commit 3 - "feat(frontend): add StockEntry and SalesRecord module screens"
-
 import React, { useState, useEffect, useCallback } from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Alert, Linking } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';

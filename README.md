@@ -18,7 +18,7 @@ A full-stack mobile application for managing warehouse inventory, built with Rea
 
 \- \*\*File Storage:\*\* Cloudinary
 
-\- \*\*Hosting:\*\* Render
+\- \*\*Hosting:\*\* Netlify (frontend) + Railway (backend)
 
 \- \*\*Testing:\*\* Jest + Supertest
 

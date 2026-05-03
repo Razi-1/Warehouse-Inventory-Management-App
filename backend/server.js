@@ -1,5 +1,3 @@
-// GITHUB: Day 2 - Commit 1 - "feat(backend): add Express server setup, MongoDB connection, and middleware"
-
 // Load environment variables FIRST — before any require() that reads process.env
 // (e.g. config/cloudinary.js needs CLOUDINARY_API_KEY at import time)
 const dotenv = require('dotenv');

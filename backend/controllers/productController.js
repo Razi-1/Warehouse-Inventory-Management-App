@@ -1,5 +1,3 @@
-// GITHUB: Day 4 - Commit 1 - "feat(backend): add Product, Supplier, and Warehouse controllers with full CRUD"
-
 const Product = require('../models/Product');
 const StockEntry = require('../models/StockEntry');
 const SalesRecord = require('../models/SalesRecord');

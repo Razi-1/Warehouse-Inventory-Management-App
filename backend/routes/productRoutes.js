@@ -1,5 +1,3 @@
-// GITHUB: Day 3 - Commit 1 - "feat(backend): add Product and Supplier models and route stubs"
-
 const express = require('express');
 const router = express.Router();
 const {

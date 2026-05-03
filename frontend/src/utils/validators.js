@@ -1,5 +1,3 @@
-// GITHUB: Day 2 - Commit 4 - "feat(frontend): add login and registration screens with validation"
-
 // Each function returns an error message string if invalid, or empty string if valid.
 
 export const validateRequired = (value, fieldName) => {

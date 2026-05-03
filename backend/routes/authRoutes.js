@@ -1,5 +1,3 @@
-// GITHUB: Day 2 - Commit 2 - "feat(backend): add User model, auth controllers, routes, and JWT middleware"
-
 const express = require('express');
 const router = express.Router();
 const { register, login, getMe } = require('../controllers/authController');

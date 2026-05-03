@@ -1,5 +1,3 @@
-// GITHUB: Day 2 - Commit 4 - "feat(frontend): add login and registration screens with validation"
-
 import React, { useState } from 'react';
 import {
   View,

@@ -1,5 +1,3 @@
-// GITHUB: Day 5 - Commit 1 - "feat(backend): add StockEntry and SalesRecord controllers with inventory linking"
-
 const SalesRecord = require('../models/SalesRecord');
 const Product = require('../models/Product');
 const queryHelper = require('../utils/queryHelper');

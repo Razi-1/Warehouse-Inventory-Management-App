@@ -1,5 +1,3 @@
-// GITHUB: Day 3 - Commit 5 - "feat(frontend): add reusable components"
-
 import React from 'react';
 import {
   Modal,

@@ -1,5 +1,3 @@
-// GITHUB: Day 4 - Commit 4 - "feat(frontend): add Supplier and Warehouse module screens"
-
 import React, { useState, useEffect, useCallback } from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Alert, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';

@@ -1,5 +1,3 @@
-// GITHUB: Day 3 - Commit 3 - "feat(backend): add StockEntry and SalesRecord models and route stubs"
-
 const mongoose = require('mongoose');
 
 const salesRecordSchema = new mongoose.Schema({
