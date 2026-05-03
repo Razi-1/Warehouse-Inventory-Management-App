@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Alert, Image, Linking } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import axiosInstance from '../../api/axiosConfig';
@@ -33,7 +34,9 @@ const SupplierDetailScreen = ({ route, navigation }) => {
     }
   }, [id]);
 
-  useEffect(() => { fetchSupplier(); }, [fetchSupplier]);
+  useFocusEffect(
+    useCallback(() => { fetchSupplier(); }, [fetchSupplier])
+  );
 
   useEffect(() => {
     navigation.setOptions({

@@ -6,6 +6,7 @@ import axiosInstance from '../../api/axiosConfig';
 import FormInput from '../../components/FormInput';
 import FileUploadPicker from '../../components/FileUploadPicker';
 import { validateRequired, validateNumber } from '../../utils/validators';
+import appendFileToFormData from '../../utils/fileUpload';
 import colors from '../../theme/colors';
 
 const WarehouseFormScreen = ({ route, navigation }) => {
@@ -39,7 +40,7 @@ const WarehouseFormScreen = ({ route, navigation }) => {
       formData.append('address', address.trim());
       formData.append('capacity', capacity);
       formData.append('description', description.trim());
-      if (imageFile) formData.append('warehouseImage', { uri: imageFile.uri, name: imageFile.name, type: imageFile.type });
+      await appendFileToFormData(formData, 'warehouseImage', imageFile);
 
       if (isEditing) {
         await axiosInstance.put(`/warehouses/${existingItem._id}`, formData, { headers: { 'Content-Type': 'multipart/form-data' } });

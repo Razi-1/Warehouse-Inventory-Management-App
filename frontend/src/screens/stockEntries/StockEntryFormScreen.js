@@ -6,6 +6,7 @@ import axiosInstance from '../../api/axiosConfig';
 import FormInput from '../../components/FormInput';
 import FileUploadPicker from '../../components/FileUploadPicker';
 import { validateRequired, validateNumber } from '../../utils/validators';
+import appendFileToFormData from '../../utils/fileUpload';
 import colors from '../../theme/colors';
 
 const StockEntryFormScreen = ({ route, navigation }) => {
@@ -69,7 +70,7 @@ const StockEntryFormScreen = ({ route, navigation }) => {
       formData.append('quantityAdded', quantityAdded);
       formData.append('dateReceived', dateReceived);
       formData.append('notes', notes.trim());
-      if (invoiceFile) formData.append('invoiceImage', { uri: invoiceFile.uri, name: invoiceFile.name, type: invoiceFile.type });
+      await appendFileToFormData(formData, 'invoiceImage', invoiceFile);
 
       if (isEditing) {
         await axiosInstance.put(`/stock-entries/${existingItem._id}`, formData, { headers: { 'Content-Type': 'multipart/form-data' } });

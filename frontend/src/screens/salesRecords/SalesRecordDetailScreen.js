@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Alert, Linking } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import axiosInstance from '../../api/axiosConfig';
@@ -35,7 +36,9 @@ const SalesRecordDetailScreen = ({ route, navigation }) => {
     }
   }, [id]);
 
-  useEffect(() => { fetchRecord(); }, [fetchRecord]);
+  useFocusEffect(
+    useCallback(() => { fetchRecord(); }, [fetchRecord])
+  );
 
   useEffect(() => {
     if (isAdmin && record) {

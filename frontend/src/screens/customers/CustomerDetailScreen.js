@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Alert, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import axiosInstance from '../../api/axiosConfig';
@@ -36,7 +37,9 @@ const CustomerDetailScreen = ({ route, navigation }) => {
     }
   }, [id]);
 
-  useEffect(() => { fetchCustomer(); }, [fetchCustomer]);
+  useFocusEffect(
+    useCallback(() => { fetchCustomer(); }, [fetchCustomer])
+  );
 
   useEffect(() => {
     if (isAdmin && customer) {

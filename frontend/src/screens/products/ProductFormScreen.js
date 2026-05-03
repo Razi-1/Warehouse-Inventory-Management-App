@@ -9,6 +9,7 @@ import axiosInstance from '../../api/axiosConfig';
 import FormInput from '../../components/FormInput';
 import FileUploadPicker from '../../components/FileUploadPicker';
 import { validateRequired, validateNumber } from '../../utils/validators';
+import appendFileToFormData from '../../utils/fileUpload';
 import colors from '../../theme/colors';
 
 const CATEGORIES = ['Electronics', 'Furniture', 'Clothing', 'Food & Beverages', 'Raw Materials', 'Other'];
@@ -76,13 +77,7 @@ const ProductFormScreen = ({ route, navigation }) => {
       formData.append('supplier', supplierId);
       formData.append('warehouse', warehouseId);
 
-      if (imageFile) {
-        formData.append('image', {
-          uri: imageFile.uri,
-          name: imageFile.name,
-          type: imageFile.type,
-        });
-      }
+      await appendFileToFormData(formData, 'image', imageFile);
 
       if (isEditing) {
         await axiosInstance.put(`/products/${existingItem._id}`, formData, {

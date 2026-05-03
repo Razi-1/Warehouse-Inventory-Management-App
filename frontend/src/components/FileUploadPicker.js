@@ -93,7 +93,7 @@ const FileUploadPicker = ({ mode = 'image', onFilePicked, existingUrl, label }) 
 
       <TouchableOpacity style={styles.picker} onPress={handlePick}>
         {imagePreviewUri ? (
-          <View>
+          <View style={styles.imagePreviewContainer}>
             <Image source={{ uri: imagePreviewUri }} style={styles.imagePreview} />
             {pickedFile && (
               <View style={styles.selectedBadge}>
@@ -150,6 +150,9 @@ const styles = StyleSheet.create({
     minHeight: 100,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  imagePreviewContainer: {
+    width: '100%',
   },
   imagePreview: {
     width: '100%',
