@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
 import {
   View, Text, ScrollView, StyleSheet, TouchableOpacity, Alert, Image,
 } from 'react-native';
@@ -38,9 +39,11 @@ const ProductDetailScreen = ({ route, navigation }) => {
     }
   }, [id]);
 
-  useEffect(() => {
-    fetchProduct();
-  }, [fetchProduct]);
+  useFocusEffect(
+    useCallback(() => {
+      fetchProduct();
+    }, [fetchProduct])
+  );
 
   useEffect(() => {
     navigation.setOptions({

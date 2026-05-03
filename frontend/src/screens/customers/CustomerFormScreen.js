@@ -6,6 +6,7 @@ import axiosInstance from '../../api/axiosConfig';
 import FormInput from '../../components/FormInput';
 import FileUploadPicker from '../../components/FileUploadPicker';
 import { validateRequired, validateEmail, validatePhone } from '../../utils/validators';
+import appendFileToFormData from '../../utils/fileUpload';
 import colors from '../../theme/colors';
 
 const CustomerFormScreen = ({ route, navigation }) => {
@@ -39,7 +40,7 @@ const CustomerFormScreen = ({ route, navigation }) => {
       formData.append('email', email.trim());
       formData.append('phone', phone.trim());
       formData.append('address', address.trim());
-      if (imageFile) formData.append('profileImage', { uri: imageFile.uri, name: imageFile.name, type: imageFile.type });
+      await appendFileToFormData(formData, 'profileImage', imageFile);
 
       if (isEditing) {
         await axiosInstance.put(`/customers/${existingItem._id}`, formData, { headers: { 'Content-Type': 'multipart/form-data' } });

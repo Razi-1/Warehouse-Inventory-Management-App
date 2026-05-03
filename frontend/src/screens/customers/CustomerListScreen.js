@@ -1,7 +1,8 @@
 
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import { View, Text, FlatList, StyleSheet, TouchableOpacity, RefreshControl, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useFocusEffect } from '@react-navigation/native';
 import axiosInstance from '../../api/axiosConfig';
 import useSearch from '../../hooks/useSearch';
 import SearchBar from '../../components/SearchBar';
@@ -38,10 +39,12 @@ const CustomerListScreen = ({ navigation }) => {
     }
   }, [queryParams]);
 
-  useEffect(() => {
-    if (isFirstLoad.current) { setIsLoading(true); isFirstLoad.current = false; }
-    setCurrentPage(1); fetchCustomers(1, false);
-  }, [fetchCustomers]);
+  useFocusEffect(
+    useCallback(() => {
+      if (isFirstLoad.current) { setIsLoading(true); isFirstLoad.current = false; }
+      setCurrentPage(1); fetchCustomers(1, false);
+    }, [fetchCustomers])
+  );
   const handleRefresh = () => { setIsRefreshing(true); fetchCustomers(1, false); };
   const handleLoadMore = () => {
     if (isLoadingMore || !pagination || currentPage >= pagination.totalPages) return;

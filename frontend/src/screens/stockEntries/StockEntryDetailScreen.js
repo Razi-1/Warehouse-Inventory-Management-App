@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Alert, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import axiosInstance from '../../api/axiosConfig';
@@ -32,7 +33,9 @@ const StockEntryDetailScreen = ({ route, navigation }) => {
     }
   }, [id]);
 
-  useEffect(() => { fetchEntry(); }, [fetchEntry]);
+  useFocusEffect(
+    useCallback(() => { fetchEntry(); }, [fetchEntry])
+  );
 
   useEffect(() => {
     if (entry) {

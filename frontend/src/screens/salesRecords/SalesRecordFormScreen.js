@@ -6,6 +6,7 @@ import axiosInstance from '../../api/axiosConfig';
 import FormInput from '../../components/FormInput';
 import FileUploadPicker from '../../components/FileUploadPicker';
 import { validateRequired, validateNumber } from '../../utils/validators';
+import appendFileToFormData from '../../utils/fileUpload';
 import colors from '../../theme/colors';
 
 const SalesRecordFormScreen = ({ route, navigation }) => {
@@ -68,7 +69,7 @@ const SalesRecordFormScreen = ({ route, navigation }) => {
       formData.append('unitPrice', unitPrice);
       formData.append('dateSold', dateSold);
       formData.append('notes', notes.trim());
-      if (invoiceFile) formData.append('invoiceFile', { uri: invoiceFile.uri, name: invoiceFile.name, type: invoiceFile.type });
+      await appendFileToFormData(formData, 'invoiceFile', invoiceFile);
 
       if (isEditing) {
         await axiosInstance.put(`/sales-records/${existingItem._id}`, formData, { headers: { 'Content-Type': 'multipart/form-data' } });

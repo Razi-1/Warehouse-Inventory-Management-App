@@ -6,6 +6,7 @@ import axiosInstance from '../../api/axiosConfig';
 import FormInput from '../../components/FormInput';
 import FileUploadPicker from '../../components/FileUploadPicker';
 import { validateRequired, validateEmail, validatePhone } from '../../utils/validators';
+import appendFileToFormData from '../../utils/fileUpload';
 import colors from '../../theme/colors';
 
 const SupplierFormScreen = ({ route, navigation }) => {
@@ -43,8 +44,8 @@ const SupplierFormScreen = ({ route, navigation }) => {
       formData.append('email', email.trim());
       formData.append('phone', phone.trim());
       formData.append('address', address.trim());
-      if (logoFile) formData.append('logo', { uri: logoFile.uri, name: logoFile.name, type: logoFile.type });
-      if (contractFile) formData.append('contractDocument', { uri: contractFile.uri, name: contractFile.name, type: contractFile.type });
+      await appendFileToFormData(formData, 'logo', logoFile);
+      await appendFileToFormData(formData, 'contractDocument', contractFile);
 
       if (isEditing) {
         await axiosInstance.put(`/suppliers/${existingItem._id}`, formData, { headers: { 'Content-Type': 'multipart/form-data' } });
