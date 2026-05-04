@@ -5,7 +5,7 @@ import { Picker } from '@react-native-picker/picker';
 import axiosInstance from '../../api/axiosConfig';
 import FormInput from '../../components/FormInput';
 import FileUploadPicker from '../../components/FileUploadPicker';
-import { validateRequired, validateNumber } from '../../utils/validators';
+import { validateRequired, validateInteger } from '../../utils/validators';
 import appendFileToFormData from '../../utils/fileUpload';
 import colors from '../../theme/colors';
 
@@ -53,8 +53,22 @@ const StockEntryFormScreen = ({ route, navigation }) => {
     if (!productId) newErrors.product = 'Product is required';
     if (!warehouseId) newErrors.warehouse = 'Warehouse is required';
     if (!supplierId) newErrors.supplier = 'Supplier is required';
-    newErrors.quantityAdded = validateNumber(quantityAdded, 'Quantity', 1);
+    newErrors.quantityAdded = validateInteger(quantityAdded, 'Quantity', 1);
     newErrors.dateReceived = validateRequired(dateReceived, 'Date received');
+
+    if (!newErrors.quantityAdded && isEditing) {
+      const selectedProduct = products.find((p) => p._id === productId);
+      if (selectedProduct) {
+        const newQty = Number(quantityAdded);
+        const oldQty = existingItem?.quantityAdded || 0;
+        const delta = newQty - oldQty;
+        if (delta < 0 && selectedProduct.quantity + delta < 0) {
+          const minAllowed = oldQty - selectedProduct.quantity;
+          newErrors.quantityAdded = `Cannot reduce below ${minAllowed}. Only ${selectedProduct.quantity} unit${selectedProduct.quantity === 1 ? '' : 's'} in stock`;
+        }
+      }
+    }
+
     setErrors(newErrors);
     return Object.values(newErrors).every((e) => e === '');
   };
@@ -93,7 +107,7 @@ const StockEntryFormScreen = ({ route, navigation }) => {
       {errors.product ? <Text style={styles.errorText}>{errors.product}</Text> : null}
       <View style={styles.pickerContainer}>
         <Picker selectedValue={productId} onValueChange={setProductId} style={styles.picker}>
-          {products.map((p) => <Picker.Item key={p._id} label={`${p.name} (${p.sku})`} value={p._id} />)}
+          {products.map((p) => <Picker.Item key={p._id} label={`${p.name} (${p.sku}) — Stock: ${p.quantity}`} value={p._id} />)}
         </Picker>
       </View>
 

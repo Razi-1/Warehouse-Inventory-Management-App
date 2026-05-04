@@ -5,7 +5,7 @@ import { View, ScrollView, StyleSheet, TouchableOpacity, Text, Alert, ActivityIn
 import axiosInstance from '../../api/axiosConfig';
 import FormInput from '../../components/FormInput';
 import FileUploadPicker from '../../components/FileUploadPicker';
-import { validateRequired, validateNumber } from '../../utils/validators';
+import { validateRequired, validateInteger } from '../../utils/validators';
 import appendFileToFormData from '../../utils/fileUpload';
 import colors from '../../theme/colors';
 
@@ -25,7 +25,7 @@ const WarehouseFormScreen = ({ route, navigation }) => {
     const newErrors = {
       name: validateRequired(name, 'Name'),
       address: validateRequired(address, 'Address'),
-      capacity: validateNumber(capacity, 'Capacity', 1),
+      capacity: validateInteger(capacity, 'Capacity', 1),
     };
     setErrors(newErrors);
     return Object.values(newErrors).every((e) => e === '');

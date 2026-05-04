@@ -51,6 +51,17 @@ export const validateNumber = (value, fieldName, min = 0) => {
   return '';
 };
 
+export const validateInteger = (value, fieldName, min = 1) => {
+  if (value === '' || value === null || value === undefined) {
+    return `${fieldName} is required`;
+  }
+  const num = Number(value);
+  if (isNaN(num) || !Number.isInteger(num) || num < min) {
+    return `${fieldName} must be a whole number greater than or equal to ${min}`;
+  }
+  return '';
+};
+
 export const validatePhone = (phone) => {
   if (!phone || phone.trim() === '') {
     return 'Phone number is required';
