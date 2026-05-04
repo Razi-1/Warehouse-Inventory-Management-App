@@ -5,7 +5,7 @@ import { Picker } from '@react-native-picker/picker';
 import axiosInstance from '../../api/axiosConfig';
 import FormInput from '../../components/FormInput';
 import FileUploadPicker from '../../components/FileUploadPicker';
-import { validateRequired, validateNumber } from '../../utils/validators';
+import { validateRequired, validateNumber, validateInteger } from '../../utils/validators';
 import appendFileToFormData from '../../utils/fileUpload';
 import colors from '../../theme/colors';
 
@@ -48,9 +48,26 @@ const SalesRecordFormScreen = ({ route, navigation }) => {
     const newErrors = {};
     if (!productId) newErrors.product = 'Product is required';
     if (!customerId) newErrors.customer = 'Customer is required';
-    newErrors.quantitySold = validateNumber(quantitySold, 'Quantity', 1);
+    newErrors.quantitySold = validateInteger(quantitySold, 'Quantity', 1);
     newErrors.unitPrice = validateNumber(unitPrice, 'Unit price', 0);
     newErrors.dateSold = validateRequired(dateSold, 'Date sold');
+
+    if (!newErrors.quantitySold) {
+      const selectedProduct = products.find((p) => p._id === productId);
+      if (selectedProduct) {
+        const qty = Number(quantitySold);
+        const availableStock = isEditing
+          ? selectedProduct.quantity + (existingItem?.quantitySold || 0)
+          : selectedProduct.quantity;
+
+        if (availableStock === 0) {
+          newErrors.quantitySold = 'This product is out of stock';
+        } else if (qty > availableStock) {
+          newErrors.quantitySold = `Insufficient stock. Only ${availableStock} unit${availableStock === 1 ? '' : 's'} available`;
+        }
+      }
+    }
+
     setErrors(newErrors);
     return Object.values(newErrors).every((e) => e === '');
   };
